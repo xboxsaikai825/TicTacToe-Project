@@ -20,6 +20,8 @@ board::board() {
 	if (this->is_board_full()) {
 		cout << "The game ends with a tie!" << endl;
 	}
+	else
+		cout << "The winner is player " << current_player << "!" << endl;
 
 }
 
