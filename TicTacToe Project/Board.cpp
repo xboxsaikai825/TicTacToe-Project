@@ -17,6 +17,9 @@ board::board() {
 		this->render();
 		count++;
 	}
+	if (this->is_board_full()) {
+		cout << "The game ends with a tie!" << endl;
+	}
 
 }
 
@@ -44,8 +47,6 @@ void board::make_move(string move_coords, char player) {
 	char y_coord = move_coords[1];
 	int ix_coord = x_coord - '0';
 	int iy_coord = y_coord - '0';
-	cout << "X:" << ix_coord << endl;
-	cout << "Y:" << iy_coord << endl;
 	if (grid[iy_coord][ix_coord] == 'X' || grid[iy_coord][ix_coord] == 'O') {
 		cout << "Invalid move." << endl;
 		this->render();
