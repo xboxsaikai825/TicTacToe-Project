@@ -9,7 +9,7 @@ board::board() {
 	int count = 0;
 	char current_player;
 	this->render();
-	while (this->get_winner() == '0') {
+	while (this->get_winner() == '0' && !this->is_board_full()) {
 		if (count % 2 == 0) { current_player = 'X'; }
 		else
 			current_player = 'O';
@@ -80,4 +80,13 @@ char board::get_winner() {
 
 	else
 		return '0';
+}
+
+bool board::is_board_full() {
+	for (int r = 0; r < 3; r++) {
+		for (int c = 0; c < 3; c++) {
+			if (grid[r][c] == '*') { return false; }
+		}
+	}
+	return true;
 }
